@@ -12,7 +12,10 @@ class Card extends React.Component {
     return (
       <div className="card d-flex" style={cardStyle}>
         <div className="card-body">
-          <h5 className="card-title">{title}</h5>
+          <h5 className="card-title">
+            {title}
+            <hr/>
+           </h5>
           {children}
         </div>
       </div>

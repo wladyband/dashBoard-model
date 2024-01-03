@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '../components/card';
 import FormGroup from '../components/form-group';
-
+import '../css/button.css';
 
 class RegisterUser extends React.Component {
   render() {
