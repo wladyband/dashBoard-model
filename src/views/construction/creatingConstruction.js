@@ -4,6 +4,32 @@ import FormGroup from '../components/form-group';
 import '../css/button.css';
 
 class CreatingConstruction extends React.Component {
+
+    state = {
+        nameOfTheWork: '',
+        propertyOwner: '',
+        zipCode: '',
+        cityNeighborhood: '',
+        city: '',
+        cityStatus: '',
+        cityAddress: '',
+        addressNumber: '',
+        complement: ''
+    }
+    saveWorkRecord = () =>{
+        console.log('Nome da Obra: ', this.state.nameOfTheWork)
+        console.log('Nome do Proprietário: ', this.state.propertyOwner)
+        console.log('CEP: ', this.state.zipCode)
+        console.log('Endereo da cidade: ', this.state.cityAddress)
+        console.log('Bairro da cidade: ', this.state.cityNeighborhood)
+        console.log('Nome da cidade: ', this.state.city)
+        console.log('Estado da cidade: ', this.state.cityStatus)
+        console.log('Número do endereço: ', this.state.addressNumber)
+        console.log('Complemento: ', this.state.complement)
+        console.log('Tipo de obra selecionado:', this.state.selectedOption);
+    }
+
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -11,11 +37,13 @@ class CreatingConstruction extends React.Component {
     };
   }
 
-  handleOptionChange = (event) => {
-    this.setState({
-      selectedOption: event.target.value,
-    });
-  };
+
+
+   handleOptionChange = (event, component) => {
+        this.setState({
+            selectedOption: event.target.value,
+        });
+    };
 
   render() {
     return (
@@ -49,7 +77,7 @@ class CreatingConstruction extends React.Component {
                         name="constructionType"
                         value="Orçamento"
                         checked={this.state.selectedOption === 'Orçamento'}
-                        onChange={this.handleOptionChange}
+                        onChange={(event) => this.handleOptionChange(event, event.target)}
                       />
                       Orçamento
                     </label>
@@ -74,8 +102,10 @@ class CreatingConstruction extends React.Component {
               <div className="row">
                 <div className='col-lg-4' >
                    <FormGroup label="Nome da Obra: *" htmlFor="">
-                              <input type="text" name="" 
-                              id="" 
+                              <input type="text"
+                              value={this.state.nameOfTheWork}
+                              onChange={(e) => this.setState({ nameOfTheWork: e.target.value })}
+                              id="inputNameOfTheWork" 
                               className="form-control" 
                               />
                     </FormGroup>
@@ -89,8 +119,10 @@ class CreatingConstruction extends React.Component {
                <div className="row">
                 <div className='col-lg-4' style={{ marginRight: '2.0%'}}>
                    <FormGroup label="Proprietário:" htmlFor="" >
-                              <input type="text" name="" 
-                              id="" 
+                              <input type="text"
+                              value={this.state.propertyOwner}
+                              onChange={(e) => this.setState({ propertyOwner : e.target.value })}  
+                              id="inputPropertyOwner" 
                               className="form-control" 
                               />
                     </FormGroup>
@@ -107,16 +139,20 @@ class CreatingConstruction extends React.Component {
               <div className="row">
                 <div className='col-lg-4' style={{ marginRight: '2.0%'}}>
                    <FormGroup label="CEP:" htmlFor="" >
-                              <input type="text" name="" 
-                              id="" 
+                              <input type="text" 
+                              value={this.state.zipCode}
+                              onChange={(e) => this.setState({ zipCode : e.target.value })}   
+                              id="inputZipCode" 
                               className="form-control" 
                               />
                     </FormGroup>
                 </div>
                   <div className='col-lg-4' style={{ marginRight: '2.0%'}}>
                    <FormGroup label="Bairro:" htmlFor="" >
-                              <input type="text" name="" 
-                              id="" 
+                              <input type="text" 
+                              value={this.state.cityNeighborhood}
+                              onChange={(e) => this.setState({ cityNeighborhood : e.target.value })}    
+                              id="inputCityNeighborhood" 
                               className="form-control" 
                               />
                     </FormGroup>
@@ -125,16 +161,20 @@ class CreatingConstruction extends React.Component {
               <div className="row">
                 <div className='col-lg-4' style={{ marginRight: '2.0%'}}>
                    <FormGroup label="Cidade:" htmlFor="" >
-                              <input type="text" name="" 
-                              id="" 
+                              <input type="text" 
+                              value={this.state.city}
+                              onChange={(e) => this.setState({ city : e.target.value })} 
+                              id="inputCity" 
                               className="form-control" 
                               />
                     </FormGroup>
                 </div>
                   <div className='col-lg-4' style={{ marginRight: '2.0%'}}>
                    <FormGroup label="Estado:" htmlFor="" >
-                              <input type="text" name="" 
-                              id="" 
+                              <input type="text" 
+                              value={this.state.cityStatus}
+                              onChange={(e) => this.setState({ cityStatus : e.target.value })} 
+                              id="inputCityStatus" 
                               className="form-control" 
                               />
                     </FormGroup>
@@ -143,16 +183,20 @@ class CreatingConstruction extends React.Component {
               <div className="row">
                 <div className='col-lg-6' style={{ marginRight: '2.0%'}}>
                    <FormGroup label="Endereço:" htmlFor="" >
-                              <input type="text" name="" 
-                              id="" 
+                              <input type="text" 
+                              value={this.state.cityAddress}
+                              onChange={(e) => this.setState({ cityAddress : e.target.value })}  
+                              id="inputCityAddress" 
                               className="form-control" 
                               />
                     </FormGroup>
                 </div>
                 <div className='col-lg-4'>
                     <FormGroup label="Número:" htmlFor="" >
-                              <input type="text" name="" 
-                              id="" 
+                              <input type="text" 
+                              value={this.state.addressNumber}
+                              onChange={(e) => this.setState({ addressNumber : e.target.value })}  
+                              id="inputAddressNumber" 
                               className="form-control" 
                               />
                     </FormGroup>
@@ -161,14 +205,16 @@ class CreatingConstruction extends React.Component {
              <div className="row">
                 <div className='col-lg-6'>
                     <FormGroup label="Complemento:" htmlFor="" >
-                              <input type="text" name="" 
-                              id="" 
+                              <input type="text" 
+                              value={this.state.complement}
+                              onChange={(e) => this.setState({ complement : e.target.value })}  
+                              id="inputComplement" 
                               className="form-control" 
                               />
                     </FormGroup>
                 </div>
               </div>
-                <button type="button" className="btn btn-primary">
+                <button onClick={this.saveWorkRecord} type="button" className="btn btn-primary">
                                 Salvar e ir para o último passo
                 </button>
             </Card>
