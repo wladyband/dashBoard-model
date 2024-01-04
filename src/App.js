@@ -7,7 +7,8 @@ import React from 'react';
 import './views/css/custom.css'
 import RegisterUser from "./views/user/registerUser";
 import Navbar from "./views/components/navbar";
-import CreatingConstruction from "./views/construction/creatingConstruction";
+import CreatingConstruction from "./views/construction/creatingPrimaryConstruction";
+import CreatingSecondaryConstruction from "./views/construction/creatingSecondaryConstruction";
 
 class App extends React.Component {
  render(){
@@ -15,7 +16,7 @@ class App extends React.Component {
     <>
     <Navbar/>
       <div>
-        <CreatingConstruction/>
+        <CreatingSecondaryConstruction/>
       </div>
     </>
   )

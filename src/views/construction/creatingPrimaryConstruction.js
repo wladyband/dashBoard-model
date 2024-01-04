@@ -3,10 +3,12 @@ import Card from '../components/card';
 import FormGroup from '../components/form-group';
 import '../css/button.css';
 
-class CreatingConstruction extends React.Component {
-
-    state = {
-        nameOfTheWork: '',
+class CreatingPrimaryConstruction extends React.Component {
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+         nameOfTheWork: '',
         propertyOwner: '',
         zipCode: '',
         cityNeighborhood: '',
@@ -14,8 +16,11 @@ class CreatingConstruction extends React.Component {
         cityStatus: '',
         cityAddress: '',
         addressNumber: '',
-        complement: ''
-    }
+        complement: '',
+        selectedOption: 'Orçamento',
+    };
+  }
+
     saveWorkRecord = () =>{
         console.log('Nome da Obra: ', this.state.nameOfTheWork)
         console.log('Nome do Proprietário: ', this.state.propertyOwner)
@@ -28,15 +33,6 @@ class CreatingConstruction extends React.Component {
         console.log('Complemento: ', this.state.complement)
         console.log('Tipo de obra selecionado:', this.state.selectedOption);
     }
-
-  
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedOption: 'Orçamento',
-    };
-  }
-
 
 
    handleOptionChange = (event, component) => {
@@ -225,4 +221,4 @@ class CreatingConstruction extends React.Component {
   }
 }
 
-export default CreatingConstruction;
+export default CreatingPrimaryConstruction;
