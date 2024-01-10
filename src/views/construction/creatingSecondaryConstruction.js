@@ -11,30 +11,30 @@ class CreatingSecondaryConstruction extends React.Component {
     super(props);
     this.state = {
       nameOfTheWork: '',
-      selectedWords: [],
+      selectedWork: [],
     };
   }
 
   saveWorkRecord = () => {
     console.log('Nome da Obra: ', this.state.nameOfTheWork);
-    console.log('Palavras Selecionadas: ', this.state.selectedWords);
+    console.log('Palavras Selecionadas: ', this.state.selectedWork);
   };
 
-  handleWordSelect = (word) => {
-    if (!this.state.selectedWords.includes(word)) {
+  handleWorkSelect = (word) => {
+    if (!this.state.selectedWork.includes(word)) {
       this.setState((prevState) => ({
-        selectedWords: [...prevState.selectedWords, word],
+        selectedWork: [...prevState.selectedWork, word],
       }), () => {
-        console.log('Palavras Selecionadas Atualizadas:', this.state.selectedWords);
+        console.log('Palavras Selecionadas Atualizadas:', this.state.selectedWork);
       });
     }
   };
 
- handleWordRemove = (index) => {
-    const updatedSelectedWords = [...this.state.selectedWords];
+ handleWorkRemove = (index) => {
+    const updatedSelectedWords = [...this.state.selectedWork];
     updatedSelectedWords.splice(index, 1);
-    this.setState({ selectedWords: updatedSelectedWords }, () => {
-      console.log('Palavras Selecionadas Atualizadas:', this.state.selectedWords);
+    this.setState({ selectedWork: updatedSelectedWords }, () => {
+      console.log('Palavras Selecionadas Atualizadas:', this.state.selectedWork);
     });
   };
 
@@ -47,12 +47,12 @@ class CreatingSecondaryConstruction extends React.Component {
 
               <div className="row">
                 <div className="col-md-5 step_combo">
-                  <FirstColumn onWordSelect={this.handleWordSelect} />
+                  <FirstColumn onWorkSelect={this.handleWorkSelect} />
                 </div>
                 <div className="col-md-5 step_combo">
                   <SecondColumn
-                    selectedWords={this.state.selectedWords}
-                    onWordRemove={this.handleWordRemove}
+                    selectedWork={this.state.selectedWork}
+                    onWorkRemove={this.handleWorkRemove}
                   />
                 </div>
               </div>

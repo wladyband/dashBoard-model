@@ -1,25 +1,31 @@
 import React from 'react';
 
-const wordsWithIcons = [
-  { word: 'Maçã' },
-  { word: 'Banana' },
-  { word: 'Pera' },
+const workWithIcons = [
+  { work: 'Paredes e Painés' },
+  { work: 'Cobertura' },
+  { work: 'Esquadrias' },
+  { work: 'Elétrica' },
+  { work: 'Hidráulica' },
+  { work: 'Louças e Metais' },
+  { work: 'Sistemas' },
 ];
 
-function FirstColumn({ onWordSelect }) {
+// No componente FirstColumn
+function FirstColumn({ onWorkSelect }) {
   return (
     <div className="column text_step_combo">
-       <span style={{ marginBottom: '10px' }}>Todas as etapas</span>
+      <span style={{ marginBottom: '10px' }}>Todas as etapas</span>
       <ul className='list-unstyled'>
-        {wordsWithIcons.map(({ word, icon }) => (
-          <li key={word} onClick={() => onWordSelect(word)}>
-            <span>{word}</span>
-              <i className={`bi bi-patch-check`} style={{ marginLeft: '5px' }}></i>
+        {workWithIcons.map(({ work, icon }) => (
+          <li key={work} onClick={() => onWorkSelect(work)}>
+            <span>{work}</span>
+            <i className={`bi bi-patch-check`} style={{ marginLeft: '5px' }}></i>
           </li>
         ))}
       </ul>
     </div>
   );
 }
+
 
 export default FirstColumn;
