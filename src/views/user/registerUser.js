@@ -35,7 +35,7 @@ class RegisterUser extends React.Component {
                                       <FormGroup label="Repite a senha: *" htmlFor="">
                                         <input type="inputRepeatPassword" name="" 
                                         id="" 
-                                        className="form-control" 
+                                        className="form-control"  
                                         />
                                       </FormGroup>
                                       <button type="button" className="btn btn-primary">
